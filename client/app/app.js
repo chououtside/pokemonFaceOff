@@ -4,6 +4,8 @@ angular.module('shortly', [
   'shortly.shorten',
   'shortly.auth',
   'pokeLogin',
+  'profile',
+  'pokemon',
   'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider) {
@@ -30,10 +32,18 @@ angular.module('shortly', [
     })
     .when('/pokeLogin', {
       templateUrl: 'app/pokeLogin/pokeLogin.html',
-      controller: 'pokeLoginController',
+      controller: 'pokeLoginController'
+    })
+    .when('/profile', {
+      templateUrl: 'app/profile/profile.html',
+      controller: 'profileController'
+    })
+    .when('/pokemon', {
+      templateUrl: 'app/pokemon/pokemon.html',
+      controller: 'pokemonController'
     })
     .otherwise({
-      redirectTo: '/links'
+      redirectTo: '/profile'
     });
     
     // We add our $httpInterceptor into the array
