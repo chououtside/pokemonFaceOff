@@ -34,6 +34,10 @@ angular.module('shortly', [
       templateUrl: 'app/pokeLogin/pokeLogin.html',
       controller: 'pokeLoginController'
     })
+    .when('/pokeSignUp', {
+      templateUrl: 'app/pokeLogin/pokeSignUp.html',
+      controller: 'pokeLoginController'
+    })
     .when('/profile', {
       templateUrl: 'app/profile/profile.html',
       controller: 'profileController'
