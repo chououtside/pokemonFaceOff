@@ -146,3 +146,13 @@ input[type=url]:focus {
   clear: both;
 }
 
+.pokemon {
+  display: inline-block;
+}
+
+.pokemon .active {
+  align: center;
+  background-color: red;
+  color:white;
+  margin: auto;
+}

@@ -12,16 +12,26 @@
     </div>
   </div>
 </div> -->
-
 <div class="pokemons">
-<div>test: {{data.test}}</div>
-  <div class="pokemon" ng-repeat="pokemon in data.pokemon">
-    <p>{{ pokemon.name }}</p>
+    <div class="pokemon" ng-repeat="pokemon in data.pokemon">
+        <img ng-src="http://pokeapi.co/media/img/{{$index + 1}}.png">
+        <br>
+        <span ng-class="{'active' : pokemon.active}">{{ pokemon.name }}</span>
+        <br>
+        <button ng-show="!pokemon.active" ng-click="toggle($index)">Add</button>
+        <button ng-show="pokemon.active" ng-click="toggle($index)">Remove</button>
+    </div>
 
-  </div>
-
-
- {{test}}
-
+    <button ng-click="save()">Save</button>
+    <!--     <div class="pokemon"  ng-click="active='selected'">
+      <img ng-src="http://pokeapi.co/media/img/1.png"> 
+      <br>
+      <span ng-class="active">bulbasaur</span>
+    </div>
+   
+    <div class="pokemon"  ng-click="active='selected'">
+      <img ng-src="http://pokeapi.co/media/img/1.png"> 
+      <br>
+      <span ng-class="active">bulbasaur</span>
+    </div> -->
 </div>
-
