@@ -1,13 +1,17 @@
 var linksController = require('../links/linkController.js');
 var userController = require('../users/userController.js');
+var pokemonUserController = require('../pokemonUser/pokemonUserController.js');
 var helpers = require('./helpers.js'); // our custom middleware
 
-module.exports = function (app, express) {
+module.exports = function(app, express) {
   app.get('/:code', linksController.navToLink);
 
   app.post('/api/users/signin', userController.signin);
   app.post('/api/users/signup', userController.signup);
   app.get('/api/users/signedin', userController.checkAuth);
+
+  app.post('/api/users/pokeSignUp', pokemonUserController.signUp);
+
 
   // authentication middleware used to decode token and made available on the request
   // app.use('/api/links', helpers.decode);
@@ -19,4 +23,3 @@ module.exports = function (app, express) {
   app.use(helpers.errorLogger);
   app.use(helpers.errorHandler);
 };
-
