@@ -44,6 +44,11 @@ angular.module('shortly.services', [])
     });
   };
 
+  var save = function(dataObj) {
+    console.log(dataObj);
+
+  };
+
   var getImage = function(id, callback) {
     $.ajax({
       // This is the url you should use to communicate with the parse API server.
@@ -63,7 +68,8 @@ angular.module('shortly.services', [])
 
   return {
     getAll: getAll,
-    getImage: getImage
+    getImage: getImage,
+    save: save
   };
 })
 

@@ -21,13 +21,26 @@ angular.module('pokemon', [])
 
         $scope.toggle = function(index){
             $scope.data.pokemon[index].active = !$scope.data.pokemon[index].active;
+            console.log($scope.data.pokemon[index]);
 
         };
 
-        // $scope.save = function(userId) {
-        //     Pokemon.save();
+        $scope.save = function(userId) {
+            var dataObj = {
+                username : 'boyaBrave',
+                insertedPokemon: []
+            };
 
-        // };
+            for (var i = 0; i < $scope.data.pokemon.length; i++) {
+                var currentPokemon = $scope.data.pokemon[i];
+                if (currentPokemon.active === true) {
+                    dataObj.insertedPokemon.push(currentPokemon);
+                }
+            }
+
+            Pokemon.save(dataObj);
+
+        };
 
 
         initializePokemon();

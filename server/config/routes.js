@@ -11,6 +11,7 @@ module.exports = function(app, express) {
   app.get('/api/users/signedin', userController.checkAuth);
 
   app.post('/api/users/pokeSignUp', pokemonUserController.signUp);
+  app.post('/api/pokemon/save', pokemonUserController.savePokemon);
 
 
   // authentication middleware used to decode token and made available on the request
