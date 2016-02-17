@@ -6,6 +6,7 @@ angular.module('shortly', [
   'pokeLogin',
   'profile',
   'pokemon',
+  'arena',
   'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider) {
@@ -18,7 +19,6 @@ angular.module('shortly', [
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     })
-    // Your code here
 
     .when('/links', {
       templateUrl: 'app/links/links.html',
@@ -29,6 +29,10 @@ angular.module('shortly', [
       templateUrl: 'app/shorten/shorten.html',
       controller: 'ShortenController',
       authenticate: true
+    })
+    .when('/arena', {
+      templateUrl: 'app/arena/arena.html',
+      controller: 'arenaController'
     })
     .when('/pokeLogin', {
       templateUrl: 'app/pokeLogin/pokeLogin.html',
