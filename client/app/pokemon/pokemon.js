@@ -1,7 +1,9 @@
 angular.module('pokemon', [])
-    .controller('pokemonController', function($scope, Pokemon) {
+    .controller('pokemonController', function($scope, Pokemon, $window) {
         $scope.data = {         
         };
+
+        var currentUser = $window.sessionStorage.user;
 
         var initializePokemon = function() {
             Pokemon.getAll(function(data) {
@@ -28,7 +30,7 @@ angular.module('pokemon', [])
 
         $scope.save = function(userId) {
             var dataObj = {
-                username : 'boyaBrave',
+                username : currentUser,
                 insertedPokemon: []
             };
 

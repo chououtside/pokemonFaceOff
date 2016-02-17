@@ -9,7 +9,7 @@ module.exports = {
 
   savePokemon: function(req, res, next) {
   	console.log(req.body);
-  	pokemonUser.findOne({'username' : 'boyaBrave'}, function(err, doc) {
+  	pokemonUser.findOne({'username' : req.body.username}, function(err, doc) {
   		for (var i = 0; i < req.body.insertedPokemon.length; i++){
   			var currentInsertedPokemon = req.body.insertedPokemon[i];
   			var newPokemon = {};

@@ -4,6 +4,8 @@ angular.module('pokeLogin', [])
 
   $scope.user = {};
 
+  $scope.loggedIn = false;
+
   $scope.signin = function () {
     Auth.signin($scope.user)
       .then(function (token) {
