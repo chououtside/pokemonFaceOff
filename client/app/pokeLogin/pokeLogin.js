@@ -23,7 +23,10 @@ angular.module('pokeLogin', [])
       lastName: $scope.lastName,
       pokemon: []
     };
-    Auth.signup(dataObj);
+    Auth.signup(dataObj).then(function(username){
+      $window.sessionStorage.user = username;
+      $location.path('/profile');
+    });
 
     
       // .then(function (token) {

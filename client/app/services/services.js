@@ -46,6 +46,11 @@ angular.module('shortly.services', [])
 
   var save = function(dataObj) {
     console.log(dataObj);
+    return $http({
+      method: 'POST',
+      url: '/api/pokemon/save',
+      data: dataObj
+    });
 
   };
 
@@ -97,10 +102,10 @@ angular.module('shortly.services', [])
       method: 'POST',
       url: '/api/users/pokeSignUp',
       data: user
+    })
+    .then(function(resp) {
+        return resp.data;
     });
-    // .then(function(resp) {
-    //     return resp.data.token;
-    // });
   };
 
   var isAuth = function() {
