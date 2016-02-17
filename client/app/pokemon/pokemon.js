@@ -13,7 +13,7 @@ angular.module('pokemon', [])
              
                 for (var i = 0; i < $scope.data.pokemon.length; i++){
                     $scope.data.pokemon[i].active = false;
-                    $scope.data.pokemon[i].imageUrl = 'http://pokeapi.co/media/img/' + i + 1 + '.png';
+                    $scope.data.pokemon[i].imageUrl = 'http://pokeapi.co/media/img/' + (i + 1) + '.png';
                 }
 
                 console.log('new scope data is ', $scope.data.pokemon);
@@ -42,6 +42,7 @@ angular.module('pokemon', [])
             }
 
             Pokemon.save(dataObj);
+            
 
         };
 

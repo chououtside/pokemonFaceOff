@@ -8,24 +8,30 @@ module.exports = {
   },
 
   savePokemon: function(req, res, next) {
-  	console.log(req.body);
-  	pokemonUser.findOne({'username' : req.body.username}, function(err, doc) {
-  		for (var i = 0; i < req.body.insertedPokemon.length; i++){
-  			var currentInsertedPokemon = req.body.insertedPokemon[i];
-  			var newPokemon = {};
-  			newPokemon.name = currentInsertedPokemon.name;
-  			newPokemon.image = currentInsertedPokemon.imageUrl;
-  			newPokemon.level = 1;
-  			newPokemon.strength = Math.ceil(Math.random() * 10);
-  			newPokemon.hp = 10 + Math.ceil(Math.random() * 7);
-  			doc.pokemon.push(newPokemon);
-  		}
-		doc.save(function(err, post) {
-		  console.log('document updated');
-		});
+    console.log(req.body);
+    pokemonUser.findOne({ 'username': req.body.username }, function(err, doc) {
+      for (var i = 0; i < req.body.insertedPokemon.length; i++) {
+        var currentInsertedPokemon = req.body.insertedPokemon[i];
+        var newPokemon = {};
+        newPokemon.name = currentInsertedPokemon.name;
+        newPokemon.image = currentInsertedPokemon.imageUrl;
+        newPokemon.level = 1;
+        newPokemon.strength = Math.ceil(Math.random() * 10);
+        newPokemon.hp = 10 + Math.ceil(Math.random() * 7);
+        doc.pokemon.push(newPokemon);
+      }
+      doc.save(function(err, post) {
+        console.log('document updated');
+      });
 
-  		console.log(doc.pokemon, 'boyas pokemon');
-  	});
+      console.log(doc.pokemon, 'boyas pokemon');
+    });
+  },
+
+  getParty: function(req, res, next) {
+    pokemonUser.findOne({ 'username': req.query.user }, function(err, doc) {
+      res.send(doc.pokemon);
+    });
   }
 
 };

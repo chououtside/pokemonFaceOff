@@ -1,3 +1,16 @@
 <h1>Arena</h1>
 
-<p>welcome {{test}}</p>
+<p>This is your current party</p>
+
+<div class="pokemons">
+    <div class="pokemon" ng-repeat="pokemon in data.party">
+        <img ng-src="{{pokemon.image}}">
+        <br>
+        <span ng-class="{'active' : pokemon.active}">{{ pokemon.name }}</span>
+        <br>
+        <button ng-show="!pokemon.active" ng-click="toggle($index)">Add</button>
+        <button ng-show="pokemon.active" ng-click="toggle($index)">Remove</button>
+    </div>
+
+    <button ng-click="save()">Save</button>
+</div>
